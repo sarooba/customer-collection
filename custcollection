@@ -1,0 +1,25 @@
+db.createCollection("customers", {    
+validator: {      
+$and: [        
+{          
+"firstName": {$type: "string", $exists: true}       
+},        
+{          
+"lastName": { $type: "string", $exists: true}          
+},        
+{         
+"phoneNumber":  
+{             
+$type: "string",             
+$exists: true,            
+$regex: /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/          
+}        
+},        
+{          
+"email": {            
+$type: "string",            
+$exists: true 
+}        
+}    
+]    
+} })
